@@ -1,16 +1,16 @@
 # minimal fast bop
 
-define :e3_tick do
+define :e3_tick do |r, s|
   live_loop :arp do
-    play (scale :e3, :minor_pentatonic).tick, release: 0.2, amp: 0.6
-    sleep 0.125
+    play (scale :e3, :minor_pentatonic).tick, release: r, amp: 0.6
+    sleep s
   end
 end
 
-define :e2_tick do
+define :e2_tick do |r, s|
   live_loop :arp2 do
-    play (scale :e2, :scriabin).tick, release: 0.2
-    sleep 0.25
+    play (scale :e2, :scriabin).tick, release: r, amp: 1
+    sleep s
   end
 end
 
@@ -35,12 +35,13 @@ define :simple_sample do |r, s|
 end
 
 # stick it together
-e3_tick
-e2_tick
-drum1 0.53, 0    #0 for silencing drums
-#simple_sample 1.5, 0.53
-#simple_sample 1, 0.53
-#simple_sample 1.2, 1.06
+e3_tick 0.4, 0.25
+e2_tick 0.4, 0.5
+drum1 0.53, 0    #0 for muting drums
+simple_sample 1.5, 0.53
+simple_sample 1, 0.53
+simple_sample 1.2, 1.06
+simple_sample 0.75, 1.06
 live_loop :def_note do
   one_note 64, 4, 1.2
   one_note 59, 3, 1.2
