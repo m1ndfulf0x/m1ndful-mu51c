@@ -22,15 +22,25 @@ end
 define :drum1 do |s|
   live_loop :splash do
     sleep s
-    sample :drum_cymbal_pedal, amp: 0.8
+    sample :drum_cymbal_pedal , amp: 0.8
     sleep 0.22
   end
+end
+
+define :simple_sample do |r, s|
+  # loop do
+  sleep s
+  sample :guit_e_slide, rate: r, amp: 0.8
+  # end
 end
 
 
 e3_tick
 e2_tick
 drum1 0.53
+simple_sample 1.5, 0.53
+simple_sample 1, 0.53
+simple_sample 1.2, 1.06
 live_loop :def_note do
   one_note 64, 4, 1.2
   one_note 59, 3, 1.2
