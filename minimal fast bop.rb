@@ -1,8 +1,14 @@
 # minimal fast bop
 
-define :e3_tick do |r, s|
+define :e3_tick do |r, s, us|
   live_loop :arp do
-    play (scale :e3, :minor_pentatonic).tick, release: r, amp: 0.6
+    if us == 1
+      use_synth :growl
+      play (scale :e3, :minor_pentatonic).tick, release: r, amp: 5.6
+    else
+      use_synth :beep
+      play (scale :e3, :minor_pentatonic).tick, release: r, amp: 0.6
+    end
     sleep s
   end
 end
@@ -35,13 +41,13 @@ define :simple_sample do |r, s|
 end
 
 # stick it together
-e3_tick 0.4, 0.25
-e2_tick 0.4, 0.5
+e3_tick 0.2, 0.125, 0
+e2_tick 0.2, 0.25
 drum1 0.53, 0    #0 for muting drums
-simple_sample 1.5, 0.53
-simple_sample 1, 0.53
-simple_sample 1.2, 1.06
-simple_sample 0.75, 1.06
+#simple_sample 1.5, 0.53
+#simple_sample 1, 0.53
+#simple_sample 1.2, 1.06
+#simple_sample 0.75, 1.06
 live_loop :def_note do
   one_note 64, 4, 1.2
   one_note 59, 3, 1.2
