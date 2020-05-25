@@ -4,7 +4,7 @@ define :e3_tick do |r, s, us|
   live_loop :arp do
     if us == 1
       use_synth :growl
-      play (scale :e3, :minor_pentatonic).tick, release: r, amp: 5.6
+      play (scale :e3, :minor_pentatonic).tick, release: r, amp: 2.5
     else
       use_synth :beep
       play (scale :e3, :minor_pentatonic).tick, release: r, amp: 0.6
@@ -33,6 +33,15 @@ define :drum1 do |s, a|
   end
 end
 
+define :drum2 do |s, a|
+  live_loop :bass_drum do
+    sample :drum_bass_hard, amp: a
+    sleep 0.225
+    sample :drum_bass_hard, amp: a
+    sleep 0.775
+  end
+end
+
 define :simple_sample do |r, s|
   # loop do
   sleep s
@@ -43,7 +52,8 @@ end
 # stick it together
 e3_tick 0.2, 0.125, 0
 e2_tick 0.2, 0.25
-drum1 0.53, 0    #0 for muting drums
+drum1 0.53, 1    #0 for muting drums
+#drum2 0, 0.8
 #simple_sample 1.5, 0.53
 #simple_sample 1, 0.53
 #simple_sample 1.2, 1.06
