@@ -59,7 +59,9 @@ drum1 0.53, 1    #0 for muting drums
 #simple_sample 1.2, 1.06
 #simple_sample 0.75, 1.06
 live_loop :def_note do
-  one_note 64, 4, 1.2
-  one_note 59, 3, 1.2
+  with_fx :reverb, mix: 0.9, room: 0.6 do
+    one_note 64, 4, 2.2
+    one_note 59, 3, 2.2
+  end
 end
 
