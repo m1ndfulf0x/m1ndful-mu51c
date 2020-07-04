@@ -1,8 +1,8 @@
 use_bpm 155
-with_fx :slicer, phase: 0.25, phase_slide: 5 do |e|
+with_fx :slicer, phase: 0.4, phase_slide: 2.5 do |e|
   sample :ambi_glass_hum, amp: 4.0, rate: 2.0, attack: 0.1 , sustain: 2.0, release: 1.2
   control e, phase: 0.125
-  sleep 1.0
+  sleep 1.5
 end
 use_synth :fm
 play :B3, pan: -0.5
@@ -28,5 +28,5 @@ play :E4, pan: 0.4
 sleep 0.5
 play :B3, attack: 0.1, attack_level: 0.1, decay: 0.2, decay_level: 1, sustain: 2.0, sustain_level: 0.8, release: 2.0, pan: 0.5
 #use_synth :hoover
-play :Fs4, amp: 0.8, cutoff: 90, attack: 0.1, attack_level: 0.1, sustain: 2.0, sustain_level: 0.8, release: 2.0, pan: 0.5
+play :Fs4, amp: 0.6, cutoff: 90, attack: 0.1, attack_level: 0.1, sustain: 1.75, sustain_level: 0.6, release: 2.0, pan: 0.5
 sleep 5.0
