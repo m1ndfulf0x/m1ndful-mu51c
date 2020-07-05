@@ -12,7 +12,7 @@ with_fx :distortion, mix: 0.25, distort: 0.7 do
   play :C5
   sleep 0.5
 end
-sample :perc_snap2, amp: 2.5
+sample :perc_snap2, amp: 2.1
 sleep 0.5
 with_fx :reverb, mix: 1, room: 0.9 do
   use_synth :fm
