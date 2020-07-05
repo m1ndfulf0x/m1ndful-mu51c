@@ -1,7 +1,7 @@
 # Terra Jingle Version 2
 use_bpm 75
 
-with_fx :distortion, mix: 0.3, distort: 0.7 do
+with_fx :distortion, mix: 0.25, distort: 0.7 do
   use_synth :mod_fm
   play :G5
   sleep 0.5
